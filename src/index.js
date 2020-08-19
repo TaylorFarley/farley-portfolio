@@ -12,7 +12,7 @@ app.use(express.static(pathJoin))
 
 app.get('/', async (req, res) => {
 
-  res.render('index.html')
+  res.render('index')
 
 
 })
