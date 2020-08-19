@@ -3,8 +3,8 @@ const express = require('express')
 const http = require('http')
 const app = express()
  
-let port = 3000 || process.env.PORT
- 
+
+const port = process.env.PORT || 3000
 const pathJoin = path.join(__dirname, '../public')
 
 app.use(express.static(pathJoin))
