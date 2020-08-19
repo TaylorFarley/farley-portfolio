@@ -4302,6 +4302,8 @@ input[name="carousel"] { display: none; }
 
 .animate-fadeDown { -webkit-animation: fadeIn 2s, translate-down 0.75s; animation: fadeIn 2s, translate-down 0.75s; }
 
+.grecaptcha-badge { display: none; }
+/*# sourceMappingURL=main.css.map */
 @-webkit-keyframes "fadeIn" { from { opacity: 0; }
   to { opacity: 1; } }
 
@@ -4311,5 +4313,4 @@ input[name="carousel"] { display: none; }
 @-webkit-keyframes "translate-up" { 0% { -webkit-transform: translateY(40px); transform: translateY(40px); }
   100% { -webkit-transform: translateY(0); transform: translateY(0); } }
 
-.grecaptcha-badge { display: none; }
-/*# sourceMappingURL=main.css.map */
+  
