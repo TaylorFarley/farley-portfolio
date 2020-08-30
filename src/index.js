@@ -17,6 +17,14 @@ app.get('/', async (req, res) => {
 
 })
 
+app.get('/contact', async (req, res) => {
+
+  res.render('contact')
+
+
+})
+
+
 app.listen(port, ()=>{
     console.log('we running ok!')
 })
