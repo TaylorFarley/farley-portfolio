@@ -40,7 +40,7 @@ app.post('/sendEmail', async (req, res) => {
   let message = req.body.name + ' wanted to know.. ' +req.body.message
   var mailOptions = {
     from: email,
-    to: 'twfarley@hotmail.com',
+    to: 'twfarley88@hotmail.com',
     subject: 'New Message From TWFMADE',
     text: message
   };
