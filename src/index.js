@@ -35,12 +35,12 @@ app.post('/sendEmail', async (req, res) => {
     }
   });
 
-
+  let to = process.env.TO
   let email = req.body.email
-  let message = req.body.name + ' wanted to know.. ' +req.body.message
+  let message = req.body.name + ' wanted to know.. ' +req.body.message + 'there emai is:' + req.body.email
   var mailOptions = {
     from: email,
-    to: 'twfarley88@hotmail.com',
+    to: to,
     subject: 'New Message From TWFMADE',
     text: message
   };
