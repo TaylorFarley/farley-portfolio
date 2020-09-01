@@ -28,7 +28,7 @@ app.post('/sendEmail', async (req, res) => {
   var nodemailer = require('nodemailer');
 
   var transporter = nodemailer.createTransport({
-    service: 'hotmail',
+    service: 'gmail',
     auth: {
       user: process.env.USER,
       pass: process.env.PASS
