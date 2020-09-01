@@ -40,7 +40,7 @@ app.post('/sendEmail', async (req, res) => {
   let message = req.body.name + ' wanted to know.. ' +req.body.message
   var mailOptions = {
     from: email,
-    to: 'twfarley88@gmail.com',
+    to: 'twfarley@hotmail.com',
     subject: 'New Message From TWFMADE',
     text: message
   };
@@ -51,15 +51,21 @@ app.post('/sendEmail', async (req, res) => {
     } else {
       console.log('Email sent: ' + info.response);
     }
-  });
-
-res.send('ok email sent')
+  })
+  res.redirect('/sent');
 })
 
 
 app.get('/contact', async (req, res) => {
 
   res.render('contact')
+
+
+})
+
+app.get('/sent', async (req, res) => {
+
+  res.render('sent')
 
 
 })
