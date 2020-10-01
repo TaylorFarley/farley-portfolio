@@ -72,5 +72,5 @@ app.get('/sent', async (req, res) => {
 
 
 app.listen(port, ()=>{
-    console.log('we running ok!')
+    console.log('we running ok! on ' + port)
 })
