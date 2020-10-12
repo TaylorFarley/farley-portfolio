@@ -25,32 +25,24 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/sendEmail', async (req, res) => {
-  var nodemailer = require('nodemailer');
-
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.USER,
-      pass: process.env.PASS
-    }
-  });
-
-  let to = process.env.TO
-  let email = req.body.email
-  let message = req.body.name + ' wanted to know.. ' +req.body.message + 'there emai is:' + req.body.email
-  var mailOptions = {
-    from: email,
-    to: to,
-    subject: 'New Message From TWFMADE',
-    text: message
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
+ console.log(req)
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const msg = {
+  to: 'twfarley88@gmail.com', // Change to your recipient
+  from: 'admin@twfmade.ca', // Change to your verified sender
+  subject: 'Sending with SendGrid is Fun',
+  text: `email from ${req.body.email} wanted to know ${req.body.message}`,
+  html: `email from ${req.body.email} wanted to know ${req.body.message}`,
+}
+sgMail
+  .send(msg)
+  .then(() => {
+    console.log('Email sent')
+  })
+  .catch((error) => {
+    console.error(error)
+    console.error(error.response.body)
   })
   res.redirect('/sent');
 })
