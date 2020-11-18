@@ -26,14 +26,15 @@ var forceSsl = function (req, res, next) {
   return next();
 };
 
-app.configure(function () {
+app.configure(()=>{
 
   if (env === 'production') {
       app.use(forceSsl);
   }
 
   // other configurations etc for express go here...
-}
+})
+
 app.get('/', async (req, res) => {
 
   res.render('index')
