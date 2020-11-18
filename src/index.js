@@ -1,7 +1,6 @@
 const path = require('path')
 const express = require('express')
 const http = require('http')
-
 const app = express()
 var nodemailer = require('nodemailer');
 var bodyParser = require('body-parser');
@@ -16,24 +15,14 @@ app.set('views', viewPath)
 
 
 app.use(express.static(pathJoin))
-var express = require('express'),
-env = process.env.NODE_ENV || 'development';
-
-var forceSsl = function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
-  return next();
-};
-
-app.configure(()=>{
-
-  if (env === 'production') {
-      app.use(forceSsl);
-  }
-
-  // other configurations etc for express go here...
+//
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://twfmade.ca'+req.url)
+  else
+    next() /* Continue to other routes if we're not redirecting */
 })
+//
 
 app.get('/', async (req, res) => {
 
