@@ -15,14 +15,14 @@ app.set('views', viewPath)
 
 
 app.use(express.static(pathJoin))
-//
+//ssl fix 
 app.get('*',function(req,res,next){
   if(req.headers['x-forwarded-proto']!='https')
     res.redirect('https://twfmade.ca'+req.url)
   else
     next() /* Continue to other routes if we're not redirecting */
 })
-//
+//end of ssl fix
 
 app.get('/', async (req, res) => {
 
@@ -36,9 +36,9 @@ app.post('/sendEmail', async (req, res) => {
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 const msg = {
-  to: 'twfarley88@gmail.com', // Change to your recipient
-  from: 'admin@twfmade.ca', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
+  to: 'hi@twfmade.ca', // Change to your recipient
+  from: 'hi@twfmade.ca', // Change to your verified sender
+  subject: 'Email from twfmade',
   text: `email from ${req.body.email} wanted to know ${req.body.message}`,
   html: `email from ${req.body.email} wanted to know ${req.body.message}`,
 }
