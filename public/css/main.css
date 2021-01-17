@@ -4303,7 +4303,7 @@ input[name="carousel"] { display: none; }
 
 .animate-fadeDown { -webkit-animation: fadeIn 2s, translate-down 0.75s; animation: fadeIn 2s, translate-down 0.75s; }
 
-.grecaptcha-badge { display: none; }
+
 /*# sourceMappingURL=main.css.map */
 @-webkit-keyframes "fadeIn" { from { opacity: 0; }
   to { opacity: 1; } }
