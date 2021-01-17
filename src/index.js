@@ -17,12 +17,12 @@ app.set("views", viewPath);
 
 app.use(express.static(pathJoin));
 //ssl fix
-// app.get('*',function(req,res,next){
-//   if(req.headers['x-forwarded-proto']!='https')
-//     res.redirect('https://twfmade.ca'+req.url)
-//   else
-//     next() /* Continue to other routes if we're not redirecting */
-// })
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://twfmade.ca'+req.url)
+  else
+    next() /* Continue to other routes if we're not redirecting */
+})
 //end of ssl fix
 app.post("/captcha", function (req, res) {
  
